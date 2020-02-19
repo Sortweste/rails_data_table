@@ -10,7 +10,12 @@
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body >
+  <%= render 'layouts/navigator' %>
+  <div class="mx-auto max-w-4xl">
+      <%= render "layouts/messages" %>
+      <%= yield %>
+    </div>
+  <%= render "layouts/footer" %>
   </body>
 </html>
