@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.order(title: :asc).page(params[:page]).per(params[:page_size])
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @articles}
+    end
   end
 
   # GET /articles/1
